@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          Int         @default(autoincrement())
+  discordId   String      @id
+  assignedIPs IPAddress[]
+}
+
+model IPAddress {
+  ip            String  @id
+  User          User    @relation(fields: [userDiscordId], references: [discordId])
+  userDiscordId String
+}
+
+model Server {
+  id             Int              @default(autoincrement())
+  discordId      String           @id
+  verifyRole     String
+  loggingChannel String
+  actionOnFail   String           @default("nothing")
+  minAge         Int              @default(24)
+  verifTimeout   Int              @default(120)
+  VerificationPg VerificationPg[]
+}
+
+model VerificationPg {
+  id              String @id @default(cuid())
+  discordId       String
+  assignedServer  Server @relation(fields: [serverDiscordId], references: [discordId])
+  serverDiscordId String
+  signal          String @default("pending")
+}
