@@ -6,4 +6,4 @@ Artemis is a FOSS **protector**, safeguarding your server from VPNs, Tor, malici
 
 ### Why is this in our organization repository?
 
-The original owner of this bot, `rare1k`, has been identified as a scammer. Given this situation, we are reworking our own deployment of the latest release avaliable online.
+This version of Artemis is maintained by WhyDRS for our operational needs. 
