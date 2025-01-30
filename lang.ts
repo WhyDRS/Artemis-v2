@@ -41,8 +41,8 @@ export const en = {
         verify: "You have successfully verified. You may go back to Discord.",
         verifyBot: "You have successfully verified. Enjoy the server!",
         linkgen: (link:string)=>{ // functions are used for string templates, instead of just using .replace a bunch
-            let hn = new URL(link || "http://unknown.link").hostname;
-            let allowedHosts = ["artemis-bot.com", "www.artemis-bot.com"];
+            // let hn = new URL(link || "http://test[.]com").hostname;
+            // let allowedHosts = ["test[.]com", "www[.]test[.]com"];
             let isOfficialLink = allowedHosts.includes(hn);
             return `**This server is protected by Artemis, a FOSS server protection bot. You must verify to continue.** Don't worry, this is 100% automatic.\n\n[Click here to verify! (\`${hn}\`${isOfficialLink ? ", official Artemis link!" : ""})](${link})`
         },
