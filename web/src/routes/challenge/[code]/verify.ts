@@ -14,7 +14,7 @@ export default async function v(code: string) {
         }
     }
     let ipaddr;
-    const ipmirror = ["/api/ip","https://ip.rare1k.dev","https://checkip.amazonaws.com/",
+    const ipmirror = ["/api/ip","https://checkip.amazonaws.com/",
         "https://api.ipify.org/","https://myexternalip.com/raw","https://ipinfo.io/ip" // these last 3 should NEVER be used 
     ]
     for (let i = 0; i < ipmirror.length; i++) {
